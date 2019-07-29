@@ -1,9 +1,11 @@
 #pragma once
 
-#include <cmath>
 #include <string>
 #include <time.h>
 #include <random>
+#include <cmath>
+#include <iostream>
+
 
 /* Includes - SFML */
 #include <SFML/System/Vector2.hpp>
@@ -21,10 +23,47 @@ namespace jp {
 		float x, y;
 		//constructor
 		Vec2D();
-		Vec2D(float x , float y);
+		Vec2D(float x, float y);
 		Vec2D(const Vec2D& v);
 		Vec2D(sf::Vector2f v);
 		~Vec2D();
+		//constructor
+
+		//set
+		void set(Vec2D & v);
+		void set(sf::Vector2f& v);
+		void set(float x, float y);
+		void zero();
+		Vec2D clone();
+		//set
+
+
+		//operation
+
+		void add(Vec2D & v);
+		void sub(Vec2D & v);
+		void div(float scale);
+		void mult(float scale);
+
+		float length();
+		void setLength(float scale);
+		void normalize();
+		float getAngle();
+		void setAngle(float scale);
+		float getAngleDeg();
+		void setAngleDeg(float scale);
+		void rotateBy(float scale);
+
+		float dot(Vec2D& v);
+		float cross(Vec2D& v);
+		float dist(Vec2D& v);
+		void limit(float lim);
+
+		const std::string to_str();
+		const sf::Vector2f sf();
+
+	    //operation
+
 	};
 
 }
