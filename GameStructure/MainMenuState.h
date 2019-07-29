@@ -24,6 +24,7 @@ namespace jp
 		sf::Clock _clock;
 
 		sf::Sprite _background;
+		sf::Sprite _buttom;
 	};
 
 }

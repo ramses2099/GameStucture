@@ -112,13 +112,13 @@ void jp::Vec2D::setAngle(float scale)
 
 float jp::Vec2D::getAngleDeg()
 {
-	return std::atan2(this->x, this->y) * 57.2957;
+	return (std::atan2(this->x, this->y) * 57.2957f);
 }
 
 void jp::Vec2D::setAngleDeg(float scale)
 {
 	float len = length();
-	scale *= 0.0174532925;
+	scale *= 0.0174532925f;
 	this->x = cos(scale) * len;
 	this->y = sin(scale) * len;
 }
@@ -174,3 +174,74 @@ const sf::Vector2f jp::Vec2D::sf()
 {
 	return sf::Vector2f(this->x, this->y);
 }
+
+jp::Vec2D jp::Vec2D::operator+(const Vec2D & v) const
+{
+	return Vec2D((this->x + v.x), (this->y + v.y));
+}
+
+jp::Vec2D jp::Vec2D::operator-(const Vec2D & v) const
+{
+	return Vec2D((this->x - v.x), (this->y - v.y));
+}
+
+jp::Vec2D jp::Vec2D::operator*(const float & scale) const
+{
+	return Vec2D((this->x * scale), (this->y * scale));
+}
+
+float jp::Vec2D::operator*(const Vec2D & v) const
+{
+	return ((this->x * v.x) + (this->y * v.y));
+}
+
+float jp::Vec2D::operator^(const Vec2D & v) const
+{
+	return  ((this->x * v.y) - (this->y * v.x));
+}
+
+jp::Vec2D jp::Vec2D::operator/(const float & scale) const
+{
+	return Vec2D((this->x / scale), (this->y / scale));
+}
+
+jp::Vec2D jp::Vec2D::operator/(const Vec2D & v) const
+{
+	return Vec2D((this->x / v.x), (this->y / v.y));
+}
+
+bool jp::Vec2D::operator==(const Vec2D & v) const
+{
+	return (this->x == v.x && this->y == v.y);
+}
+
+void jp::Vec2D::operator=(const Vec2D & v)
+{
+	this->x = v.x;
+	this->y = v.y;
+}
+
+void jp::Vec2D::operator+=(const Vec2D & v)
+{
+	this->x += v.x;
+	this->y += v.y;
+}
+
+void jp::Vec2D::operator-=(const Vec2D & v)
+{
+	this->x -= v.x;
+	this->y -= v.y;
+}
+
+void jp::Vec2D::operator*=(const Vec2D & v)
+{
+	this->x *= v.x;
+	this->y *= v.y;
+}
+
+void jp::Vec2D::operator/=(const Vec2D & v)
+{
+	this->x /= v.x;
+	this->y /= v.y;
+}
+

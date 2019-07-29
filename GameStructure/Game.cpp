@@ -27,7 +27,7 @@ void jp::Game::Run()
 	while (this->_data->window.isOpen())
 	{
 		this->_data->machine.ProcessStateChanges();
-		newTime = this->_clock.getElapsedTime().asMilliseconds();
+		newTime = this->_clock.getElapsedTime().asSeconds();
 
 		frameTime = newTime - currentTime;
 

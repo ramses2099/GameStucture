@@ -64,6 +64,32 @@ namespace jp {
 
 	    //operation
 
+		//operators
+
+		Vec2D operator+(const Vec2D& v) const;
+		Vec2D operator-(const Vec2D& v) const;
+		Vec2D operator*(const float& scale) const;
+		
+		//dot produt
+		float operator*(const Vec2D& v) const;
+
+		//cross product
+		float operator^(const Vec2D& v) const;
+
+		Vec2D operator/(const float& scale) const;
+		Vec2D operator/(const Vec2D& v) const;
+
+
+		bool operator==(const Vec2D & v) const;
+		void operator=(const Vec2D & v);
+
+		void operator+=(const Vec2D & v);
+		void operator-=(const Vec2D & v);
+		void operator*=(const Vec2D & v);
+		void operator/=(const Vec2D & v);
+		//operators
+
+
 	};
 
 }
