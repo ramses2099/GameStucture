@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MainMenuState.h"
+#include "PlayState.h"
 #include <iostream>
 
 jp::MainMenuState::MainMenuState(GameDataRef data) :_data(data)
@@ -38,7 +39,7 @@ void jp::MainMenuState::HandleInput()
 
 		if (_data->input.IsSpriteClicked(_buttom, sf::Mouse::Left, _data->window))
 		{
-			std::cout << "Ok ok" << std::endl;
+			_data->machine.AddState(StateRef(new PlayState(this->_data)));
 			
 		}
 
